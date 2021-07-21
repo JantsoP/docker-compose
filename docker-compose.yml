@@ -80,6 +80,6 @@ services:
 
 secrets:
   apple-developer-password:
-    file: .secrets/apple-developer-password
+    file: ./secrets/apple-developer-password
   traefik-metrics:
-    file: .secrets/traefik-metrics
+    file: ./secrets/traefik-metrics
