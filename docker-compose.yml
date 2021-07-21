@@ -26,7 +26,7 @@ services:
             - "8080:8080"
         volumes:
             - ./traefik-tls.toml:/conf/traefik-tls.toml
-            - /mnt/docker/letsencrypt:/letsencrypt
+            - ./letsencrypt:/letsencrypt
             - /var/run/docker.sock:/var/run/docker.sock:ro
         secrets:
             - traefik-metrics
@@ -48,8 +48,8 @@ services:
             - Hashes__Logo2XBlack=4e8a383fd25dc26c686f8ac70f2a251d5bd60979
             - Hashes__Logo2XWhite=28cbd85eee40f0ac79a1cfe96524a64036c9cb9e
         volumes:
-            - /mnt/docker/secrets/apple-ca-certificate.pem:/certs/apple-ca-certificate.pem
-            - /mnt/docker/secrets/apple-developer-certificate.pem:/certs/apple-developer-certificate.pem
+            - ./secrets/apple-ca-certificate.pem:/certs/apple-ca-certificate.pem
+            - ./secrets/apple-developer-certificate.pem:/certs/apple-developer-certificate.pem
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.covidpass-api.rule=Host(`api.${SERVER_URL}`)"
@@ -80,6 +80,6 @@ services:
 
 secrets:
   apple-developer-password:
-    file: /mnt/docker/secrets/apple-developer-password
+    file: .secrets/apple-developer-password
   traefik-metrics:
-    file: /mnt/docker/secrets/traefik-metrics
+    file: .secrets/traefik-metrics
