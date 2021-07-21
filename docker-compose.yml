@@ -65,7 +65,7 @@ services:
           - apple-developer-password
 
     covidpass:
-        image: ghcr.io/covidpass-org/covidpass:${TAG_FRONTEND}
+        image: ghcr.io/jantsop/covidpass:${TAG_FRONTEND}
         restart: "unless-stopped"
         environment:
             - NODE_ENV=production
